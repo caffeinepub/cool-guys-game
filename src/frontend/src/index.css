@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* Deep navy near-black background */
+    --background: 0.09 0.025 260;
+    --foreground: 0.97 0 0;
+    --card: 0.12 0.03 255;
+    --card-foreground: 0.97 0 0;
+    --popover: 0.14 0.03 255;
+    --popover-foreground: 0.97 0 0;
+    /* Gold primary */
+    --primary: 0.72 0.14 70;
+    --primary-foreground: 0.09 0.025 260;
+    /* Dark card secondary */
+    --secondary: 0.15 0.03 255;
+    --secondary-foreground: 0.97 0 0;
+    --muted: 0.18 0.025 255;
+    --muted-foreground: 0.65 0.02 255;
+    /* Gold accent */
+    --accent: 0.72 0.14 70;
+    --accent-foreground: 0.09 0.025 260;
+    /* Burgundy destructive */
+    --destructive: 0.45 0.2 15;
+    --destructive-foreground: 0.97 0 0;
+    --border: 0.72 0.14 70 / 30%;
+    --input: 0.72 0.14 70 / 20%;
+    --ring: 0.72 0.14 70;
+    --chart-1: 0.65 0.22 25;
+    --chart-2: 0.6 0.18 200;
+    --chart-3: 0.7 0.2 130;
+    --chart-4: 0.68 0.22 300;
+    --chart-5: 0.72 0.14 70;
+    --sidebar: 0.1 0.025 260;
+    --sidebar-foreground: 0.97 0 0;
+    --sidebar-primary: 0.72 0.14 70;
+    --sidebar-primary-foreground: 0.09 0.025 260;
+    --sidebar-accent: 0.15 0.03 255;
+    --sidebar-accent-foreground: 0.97 0 0;
+    --sidebar-border: 0.72 0.14 70 / 30%;
+    --sidebar-ring: 0.72 0.14 70;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Rajdhani", sans-serif;
+  }
+}
+
+/* Gold glow effects */
+.gold-glow {
+  box-shadow: 0 0 20px oklch(0.72 0.14 70 / 50%), 0 0 40px
+    oklch(0.72 0.14 70 / 20%);
+}
+
+.gold-border {
+  border: 1px solid oklch(0.72 0.14 70 / 60%);
+}
+
+.text-gold {
+  color: oklch(0.72 0.14 70);
+}
+
+.btn-action {
+  background: linear-gradient(
+    135deg,
+    oklch(0.38 0.18 15) 0%,
+    oklch(0.25 0.12 15) 100%
+  );
+  border: 1px solid oklch(0.72 0.14 70 / 70%);
+  box-shadow: 0 0 15px oklch(0.72 0.14 70 / 30%), inset 0 1px 0
+    oklch(0.72 0.14 70 / 20%);
+  color: oklch(0.97 0 0);
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn-action:hover {
+  background: linear-gradient(
+    135deg,
+    oklch(0.45 0.2 15) 0%,
+    oklch(0.32 0.15 15) 100%
+  );
+  box-shadow: 0 0 25px oklch(0.72 0.14 70 / 50%), inset 0 1px 0
+    oklch(0.72 0.14 70 / 30%);
+  transform: translateY(-1px);
+}
+
+.card-dark {
+  background: oklch(0.12 0.03 255);
+  border: 1px solid oklch(0.72 0.14 70 / 25%);
+  border-radius: 8px;
+}
+
+@keyframes pulse-gold {
+  0%,
+  100% {
+    box-shadow: 0 0 10px oklch(0.72 0.14 70 / 40%);
+  }
+  50% {
+    box-shadow: 0 0 25px oklch(0.72 0.14 70 / 70%), 0 0 50px
+      oklch(0.72 0.14 70 / 30%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.title-gradient {
+  background: linear-gradient(
+    135deg,
+    oklch(0.97 0 0) 0%,
+    oklch(0.72 0.14 70) 50%,
+    oklch(0.97 0 0) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+.health-bar {
+  background: oklch(0.2 0.03 255);
+  border: 1px solid oklch(0.72 0.14 70 / 40%);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.health-fill-p1 {
+  background: linear-gradient(
+    90deg,
+    oklch(0.55 0.22 25) 0%,
+    oklch(0.65 0.25 30) 100%
+  );
+  box-shadow: 0 0 8px oklch(0.65 0.25 30 / 60%);
+  transition: width 0.3s ease;
+}
+
+.health-fill-p2 {
+  background: linear-gradient(
+    90deg,
+    oklch(0.45 0.2 255) 0%,
+    oklch(0.6 0.22 240) 100%
+  );
+  box-shadow: 0 0 8px oklch(0.55 0.22 240 / 60%);
+  transition: width 0.3s ease;
+}
+
+.health-fill-boss {
+  background: linear-gradient(
+    90deg,
+    oklch(0.4 0.18 15) 0%,
+    oklch(0.55 0.22 20) 100%
+  );
+  box-shadow: 0 0 8px oklch(0.5 0.2 20 / 60%);
+  transition: width 0.3s ease;
+}
